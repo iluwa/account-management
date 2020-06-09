@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: accounts-manager
+    password: test
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/accdb
+  jpa:
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml

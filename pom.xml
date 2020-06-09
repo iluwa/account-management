@@ -10,12 +10,14 @@
 	</parent>
 	<groupId>com.iluwa</groupId>
 	<artifactId>account-management</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>account-management</name>
 	<description>Test task for job</description>
 
 	<properties>
 		<java.version>11</java.version>
+		<springdoc-openapi-ui.version>1.3.9</springdoc-openapi-ui.version>
+		<org.testcontainers.postgresql.version>1.14.3</org.testcontainers.postgresql.version>
 	</properties>
 
 	<dependencies>
@@ -25,11 +27,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>${springdoc-openapi-ui.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.liquibase</groupId>
@@ -58,8 +61,15 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${org.testcontainers.postgresql.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${org.testcontainers.postgresql.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  database:
+    image: "postgres"
+    environment:
+      POSTGRES_USER: accounts-manager
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: accdb
+    ports:
+      - 5432:5432
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    networks:
+      - local
+  account-management:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    networks:
+      - local
+    environment:
+      DB_HOST: database
+      DB_PORT: 5432
+      spring_profiles_active: demo
+volumes:
+  database-data:
+networks:
+  local:
+    driver: bridge
